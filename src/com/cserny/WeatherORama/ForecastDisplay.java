@@ -15,20 +15,18 @@ public class ForecastDisplay implements Observer, DisplayElement
         "More of the same"
     ));
     private String currentForecast;
-    private Random randomGenerator;
     private Subject weatherData;
 
     public ForecastDisplay(Subject weatherData)
     {
         this.weatherData = weatherData;
         weatherData.registerObserver(this);
-
-        randomGenerator = new Random();
     }
 
     @Override
     public void update(float temp, float humidity, float pressure)
     {
+        Random randomGenerator = new Random();
         currentForecast = forecasts.get(randomGenerator.nextInt(forecasts.size()));
         display();
     }
