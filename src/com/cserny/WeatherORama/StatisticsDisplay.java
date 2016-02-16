@@ -1,5 +1,8 @@
 package com.cserny.WeatherORama;
 
+import java.util.*;
+import java.util.Observer;
+
 /**
  * Created by user on 16.02.2016.
  */
@@ -8,19 +11,18 @@ public class StatisticsDisplay implements Observer, DisplayElement
     private float averageTemperature;
     private float minTemperature;
     private float maxTemperature;
-    private Subject weatherData;
 
-    public StatisticsDisplay(Subject weatherData)
+    public StatisticsDisplay(Observable weatherData)
     {
-        this.weatherData = weatherData;
-        weatherData.registerObserver(this);
+        weatherData.addObserver(this);
     }
 
     @Override
-    public void update(float temp, float humidity, float pressure)
+    public void update(Observable o, Object arg)
     {
-        maxTemperature = temp;
-        minTemperature = (temp - 2);
+        WeatherData weatherData = (WeatherData) o;
+        maxTemperature = weatherData.getTemperature();
+        minTemperature = (weatherData.getTemperature() - 2);
         averageTemperature = ((maxTemperature + minTemperature) / 2);
         display();
     }

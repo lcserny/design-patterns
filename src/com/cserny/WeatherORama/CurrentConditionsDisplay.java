@@ -1,5 +1,8 @@
 package com.cserny.WeatherORama;
 
+import java.util.*;
+import java.util.Observer;
+
 /**
  * Created by user on 16.02.2016.
  */
@@ -7,19 +10,18 @@ public class CurrentConditionsDisplay implements Observer, DisplayElement
 {
     private float temperature;
     private float humidity;
-    private Subject weatherData;
 
-    public CurrentConditionsDisplay(Subject weatherData)
+    public CurrentConditionsDisplay(Observable weatherData)
     {
-        this.weatherData = weatherData;
-        weatherData.registerObserver(this);
+        weatherData.addObserver(this);
     }
 
     @Override
-    public void update(float temp, float humidity, float pressure)
+    public void update(Observable o, Object arg)
     {
-        this.temperature = temp;
-        this.humidity = humidity;
+        WeatherData weatherData = (WeatherData) o;
+        temperature = weatherData.getTemperature();
+        humidity = weatherData.getHumidity();
         display();
     }
 

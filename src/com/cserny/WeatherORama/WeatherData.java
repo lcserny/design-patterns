@@ -1,58 +1,30 @@
 package com.cserny.WeatherORama;
 
 import java.util.ArrayList;
+import java.util.Observable;
 
 /**
  * Created by user on 16.02.2016.
  */
-public class WeatherData implements Subject
+public class WeatherData extends Observable
 {
-    private ArrayList<Observer> observers;
     private float temperature;
     private float humidity;
     private float pressure;
 
-    public WeatherData()
+    public float getTemperature()
     {
-        observers = new ArrayList<Observer>();
+        return temperature;
     }
 
-    public void getTemperature()
+    public float getHumidity()
     {
-        System.out.println("Some temperature");
+        return humidity;
     }
 
-    public void getHumidity()
+    public float getPressure()
     {
-        System.out.println("Some humidity");
-    }
-
-    public void getPressure()
-    {
-        System.out.println("Some pressure");
-    }
-
-    @Override
-    public void registerObserver(Observer observer)
-    {
-        observers.add(observer);
-    }
-
-    @Override
-    public void removeObserver(Observer observer)
-    {
-        int index = observers.indexOf(observer);
-        if (index >= 0) {
-            observers.remove(index);
-        }
-    }
-
-    @Override
-    public void notifyObservers()
-    {
-        for (Observer observer : observers) {
-            observer.update(temperature, humidity, pressure);
-        }
+        return pressure;
     }
 
     /**
@@ -62,7 +34,8 @@ public class WeatherData implements Subject
      */
     public void measurementsChanged()
     {
-        notifyObservers();
+        super.setChanged();
+        super.notifyObservers();
     }
 
     /**
