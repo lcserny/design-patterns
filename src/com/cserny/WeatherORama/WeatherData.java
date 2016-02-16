@@ -1,6 +1,5 @@
 package com.cserny.WeatherORama;
 
-import java.util.ArrayList;
 import java.util.Observable;
 
 /**

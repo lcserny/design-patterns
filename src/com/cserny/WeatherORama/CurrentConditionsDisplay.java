@@ -19,10 +19,12 @@ public class CurrentConditionsDisplay implements Observer, DisplayElement
     @Override
     public void update(Observable o, Object arg)
     {
-        WeatherData weatherData = (WeatherData) o;
-        temperature = weatherData.getTemperature();
-        humidity = weatherData.getHumidity();
-        display();
+        if (o instanceof WeatherData) {
+            WeatherData weatherData = (WeatherData) o;
+            temperature = weatherData.getTemperature();
+            humidity = weatherData.getHumidity();
+            display();
+        }
     }
 
     @Override

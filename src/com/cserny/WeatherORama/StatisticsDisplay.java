@@ -20,11 +20,13 @@ public class StatisticsDisplay implements Observer, DisplayElement
     @Override
     public void update(Observable o, Object arg)
     {
-        WeatherData weatherData = (WeatherData) o;
-        maxTemperature = weatherData.getTemperature();
-        minTemperature = (weatherData.getTemperature() - 2);
-        averageTemperature = ((maxTemperature + minTemperature) / 2);
-        display();
+        if (o instanceof WeatherData) {
+            WeatherData weatherData = (WeatherData) o;
+            maxTemperature = weatherData.getTemperature();
+            minTemperature = (weatherData.getTemperature() - 2);
+            averageTemperature = ((maxTemperature + minTemperature) / 2);
+            display();
+        }
     }
 
     @Override

@@ -26,8 +26,10 @@ public class ForecastDisplay implements Observer, DisplayElement
     @Override
     public void update(Observable o, Object arg)
     {
-        currentForecast = forecasts.get(new Random().nextInt(forecasts.size()));
-        display();
+        if (o instanceof WeatherData) {
+            currentForecast = forecasts.get(new Random().nextInt(forecasts.size()));
+            display();
+        }
     }
 
     @Override

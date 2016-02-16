@@ -18,9 +18,11 @@ public class HeatIndexDisplay implements Observer, DisplayElement
     @Override
     public void update(Observable o, Object arg)
     {
-        WeatherData weatherData = (WeatherData) o;
-        this.heatIndex = computeHeatIndex(weatherData.getTemperature(), weatherData.getHumidity());
-        display();
+        if (o instanceof WeatherData) {
+            WeatherData weatherData = (WeatherData) o;
+            this.heatIndex = computeHeatIndex(weatherData.getTemperature(), weatherData.getHumidity());
+            display();
+        }
     }
 
     @Override
