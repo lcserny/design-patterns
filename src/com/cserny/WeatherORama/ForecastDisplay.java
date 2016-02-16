@@ -26,8 +26,7 @@ public class ForecastDisplay implements Observer, DisplayElement
     @Override
     public void update(float temp, float humidity, float pressure)
     {
-        Random randomGenerator = new Random();
-        currentForecast = forecasts.get(randomGenerator.nextInt(forecasts.size()));
+        currentForecast = forecasts.get(new Random().nextInt(forecasts.size()));
         display();
     }
 
