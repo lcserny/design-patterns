@@ -5,9 +5,9 @@ import com.cserny.StarBuzzCoffee.Beverage;
 /**
  * Created by user on 17.02.2016.
  */
-public class Expresso extends Beverage
+public class Espresso extends Beverage
 {
-    public Expresso()
+    public Espresso()
     {
         setDescription("Espresso");
     }

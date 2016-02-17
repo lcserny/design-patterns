@@ -1,7 +1,7 @@
 package com.cserny.StarBuzzCoffee;
 
 import com.cserny.StarBuzzCoffee.beverages.DarkRoast;
-import com.cserny.StarBuzzCoffee.beverages.Expresso;
+import com.cserny.StarBuzzCoffee.beverages.Espresso;
 import com.cserny.StarBuzzCoffee.beverages.HouseBlend;
 import com.cserny.StarBuzzCoffee.condiments.Mocha;
 import com.cserny.StarBuzzCoffee.condiments.Soy;
@@ -14,7 +14,7 @@ public class StarBuzzCoffee
 {
     public static void main(String[] args)
     {
-        Beverage expresso = new Expresso();
+        Beverage expresso = new Espresso();
         System.out.println(expresso.getDescription() + " cost: " + expresso.cost());
 
         Beverage darkRoast = new DarkRoast();
