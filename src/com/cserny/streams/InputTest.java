@@ -16,9 +16,7 @@ public class InputTest
         try {
             InputStream inputStream = new LowerCaseInputStream(
                 new BufferedInputStream(
-                    new FileInputStream("test.txt")
-                )
-            );
+                    new FileInputStream("test.txt")));
             while ((character = inputStream.read()) >= 0) {
                 System.out.print((char) character);
             }
