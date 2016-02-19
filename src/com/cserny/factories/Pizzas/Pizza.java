@@ -1,5 +1,7 @@
 package com.cserny.factories.Pizzas;
 
+import com.cserny.factories.Ingredients.*;
+
 import java.util.ArrayList;
 
 /**
@@ -8,20 +10,15 @@ import java.util.ArrayList;
 public abstract class Pizza
 {
     String name;
-    String dough;
-    String sauce;
+    Dough dough;
+    Sauce sauce;
+    Veggie[] veggies;
+    Cheese cheese;
+    Pepperoni pepperoni;
+    Clam clam;
     ArrayList<String> toppings = new ArrayList<String>();
 
-    public void prepare()
-    {
-        System.out.println("Preparing " + name);
-        System.out.println("Tossing dough...");
-        System.out.println("Adding sauce...");
-        System.out.println("Adding toppings...");
-        for (String topping : toppings) {
-            System.out.println(" " + topping);
-        }
-    }
+    public abstract void prepare();
 
     public void bake()
     {
@@ -41,5 +38,15 @@ public abstract class Pizza
     public String getName()
     {
         return name;
+    }
+
+    public void setName(String name)
+    {
+        this.name = name;
+    }
+
+    public String toString()
+    {
+        return "";
     }
 }

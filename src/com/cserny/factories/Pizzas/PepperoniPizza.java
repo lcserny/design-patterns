@@ -5,4 +5,9 @@ package com.cserny.factories.Pizzas;
  */
 public class PepperoniPizza extends Pizza
 {
+    @Override
+    public void prepare()
+    {
+
+    }
 }

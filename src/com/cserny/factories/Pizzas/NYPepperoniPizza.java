@@ -1,15 +1,26 @@
 package com.cserny.factories.Pizzas;
 
+import com.cserny.factories.PizzaIngredientFactory;
+
 /**
  * Created by user on 18.02.2016.
  */
 public class NYPepperoniPizza extends Pizza
 {
-    public NYPepperoniPizza()
+    PizzaIngredientFactory ingredientFactory;
+
+    public NYPepperoniPizza(PizzaIngredientFactory ingredientFactory)
     {
-        name = "NY Style Pepperoni Pizza ";
-        dough = "Thin Crust Dough";
-        sauce = "Marinara Sauce";
+        this.ingredientFactory = ingredientFactory;
+    }
+
+    @Override
+    public void prepare()
+    {
+        System.out.println("Preparing " + name);
+
+        dough = ingredientFactory.createDough();
+        sauce = ingredientFactory.createSauce();
 
         toppings.add("Grated Reggiano Cheese");
     }
