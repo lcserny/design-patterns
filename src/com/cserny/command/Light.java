@@ -5,13 +5,25 @@ package com.cserny.command;
  */
 public class Light
 {
+    String name;
+
+    public Light(String name)
+    {
+        this.name = name;
+    }
+
     public void on()
     {
-        System.out.println("Lights on");
+        System.out.println(name + ": Lights on");
     }
 
     public void off()
     {
-        System.out.println("Lights off");
+        System.out.println(name + ": Lights off");
+    }
+
+    public String getName()
+    {
+        return name;
     }
 }

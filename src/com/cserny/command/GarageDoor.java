@@ -5,13 +5,25 @@ package com.cserny.command;
  */
 public class GarageDoor
 {
+    String name;
+
+    public GarageDoor(String name)
+    {
+        this.name = name;
+    }
+
     public void open()
     {
-        System.out.println("Opening garage door");
+        System.out.println(name + ": Opening garage door");
     }
 
     public void close()
     {
-        System.out.println("Closing garage door");
+        System.out.println(name + ": Closing garage door");
+    }
+
+    public String getName()
+    {
+        return name;
     }
 }

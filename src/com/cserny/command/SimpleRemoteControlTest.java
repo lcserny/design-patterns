@@ -13,12 +13,12 @@ public class SimpleRemoteControlTest // client
     public static void main(String[] args)
     {
         SimpleRemoteControl remoteControl = new SimpleRemoteControl(); // invoker
-        Light light = new Light(); // receiver
+        Light light = new Light("Some Light"); // receiver
         LightOnCommand lightOn = new LightOnCommand(light); // command, gets passed the receiver
         remoteControl.setCommand(lightOn); // invoker gets command
         remoteControl.buttonWasPressed(); // invoker runs the command
 
-        GarageDoor garageDoor = new GarageDoor();
+        GarageDoor garageDoor = new GarageDoor("Some Garage Door");
         GarageDoorOpenCommand doorOpenCommand = new GarageDoorOpenCommand(garageDoor);
         GarageDoorCloseCommand doorCloseCommand = new GarageDoorCloseCommand(garageDoor);
         remoteControl.setCommand(doorOpenCommand);
