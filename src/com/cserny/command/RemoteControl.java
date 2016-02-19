@@ -7,9 +7,10 @@ import com.cserny.command.Commands.NoCommand;
  */
 public class RemoteControl
 {
-    int numCommands = 4;
-    Command[] onCommands;
-    Command[] offCommands;
+    protected static final int numCommands = 7;
+    protected Command[] onCommands;
+    protected Command[] offCommands;
+    protected Command undoCommand;
 
     public RemoteControl()
     {
@@ -21,6 +22,7 @@ public class RemoteControl
             onCommands[i] = noCommand;
             offCommands[i] = noCommand;
         }
+        undoCommand = noCommand;
     }
 
     public void setCommand(int slot, Command onCommand, Command offCommand)
@@ -32,11 +34,18 @@ public class RemoteControl
     public void onButtonWasPushed(int slot)
     {
         onCommands[slot].execute();
+        undoCommand = onCommands[slot];
     }
 
     public void offButtonWasPushed(int slot)
     {
         offCommands[slot].execute();
+        undoCommand = offCommands[slot];
+    }
+
+    public void undoButtonWasPushed()
+    {
+        undoCommand.undo();
     }
 
     @Override

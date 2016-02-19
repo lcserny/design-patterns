@@ -12,4 +12,10 @@ public class NoCommand implements Command
     {
         // nothing wil be done here
     }
+
+    @Override
+    public void undo()
+    {
+        // nothing wil be done here
+    }
 }
