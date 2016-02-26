@@ -7,7 +7,7 @@ import com.cserny.command.Commands.NoCommand;
  */
 public class RemoteControl
 {
-    protected static final int numCommands = 7;
+    protected static final int numCommands = 3;
     protected Command[] onCommands;
     protected Command[] offCommands;
     protected Command undoCommand;
